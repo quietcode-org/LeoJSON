@@ -49,3 +49,20 @@ bench-gcc40: $(BUILD_DIR)
 bench-gcc42: $(BUILD_DIR)
 	$(CC42) $(COMMON_FLAGS) -O2 $(BENCH_SRC) $(JSONKIT_SRC) $(FOUNDATION_FLAGS) \
 		-o $(BUILD_DIR)/leojson_jsonkit_bench_gcc42
+
+LEOJSON_SRC = sources/LeoJSON/LeoJSON.m
+API_SMOKE_SRC = probes/leojson_api_smoke.m
+
+COMMON_FLAGS += -Isources/LeoJSON
+
+.PHONY: api-smoke api-smoke-gcc40 api-smoke-gcc42
+
+api-smoke: api-smoke-gcc40 api-smoke-gcc42
+
+api-smoke-gcc40: $(BUILD_DIR)
+	$(CC40) $(COMMON_FLAGS) $(API_SMOKE_SRC) $(LEOJSON_SRC) $(JSONKIT_SRC) $(FOUNDATION_FLAGS) \
+		-o $(BUILD_DIR)/leojson_api_smoke_gcc40
+
+api-smoke-gcc42: $(BUILD_DIR)
+	$(CC42) $(COMMON_FLAGS) $(API_SMOKE_SRC) $(LEOJSON_SRC) $(JSONKIT_SRC) $(FOUNDATION_FLAGS) \
+		-o $(BUILD_DIR)/leojson_api_smoke_gcc42
