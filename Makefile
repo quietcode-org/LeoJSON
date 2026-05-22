@@ -35,3 +35,17 @@ smoke-gcc42: $(BUILD_DIR)
 clean:
 	rm -rf $(BUILD_DIR)/leojson_jsonkit_smoke_gcc40
 	rm -rf $(BUILD_DIR)/leojson_jsonkit_smoke_gcc42
+
+BENCH_SRC = probes/leojson_jsonkit_bench.m
+
+.PHONY: bench bench-gcc40 bench-gcc42
+
+bench: bench-gcc40 bench-gcc42
+
+bench-gcc40: $(BUILD_DIR)
+	$(CC40) $(COMMON_FLAGS) -O2 $(BENCH_SRC) $(JSONKIT_SRC) $(FOUNDATION_FLAGS) \
+		-o $(BUILD_DIR)/leojson_jsonkit_bench_gcc40
+
+bench-gcc42: $(BUILD_DIR)
+	$(CC42) $(COMMON_FLAGS) -O2 $(BENCH_SRC) $(JSONKIT_SRC) $(FOUNDATION_FLAGS) \
+		-o $(BUILD_DIR)/leojson_jsonkit_bench_gcc42
