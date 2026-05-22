@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/1998/REC-html40-19980424/loose.dtd">
+<html>
+<head>
+<title>Functions</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="HeaderDoc">
+<style type="text/css"><!--.keyword {background:#ffffff; color:#761550;}.template {background:#ffffff; color:#761550;}.number {background: #ffffff; color:#0000ff;}.function {background:#ffffff; color:#000000;}.string {background: #ffffff; color:#891315;}.preprocessor {background:#ffffff; color:#236e25}.comment {background:#ffffff; color:#236e25}.char {background: #ffffff; color:#0000ff;}.var {background:#ffffff; color:#000000;}.type {background:#ffffff; color:#761550;}.param {background:#ffffff; color:#000000;}a:link {text-decoration: none; font-family: lucida grande, geneva, helvetica, arial, sans-serif; font-size: small; color: #0000ff;}a:visited {text-decoration: none; font-family: lucida grande, geneva, helvetica, arial, sans-serif; font-size: small; color: #0000ff;}a:visited:hover {text-decoration: underline; font-family: lucida grande, geneva, helvetica, arial, sans-serif; font-size: small; color: #ff6600;}a:active {text-decoration: none; font-family: lucida grande, geneva, helvetica, arial, sans-serif; font-size: small; color: #ff6600;}a:hover {text-decoration: underline; font-family: lucida grande, geneva, helvetica, arial, sans-serif; font-size: small; color: #ff6600;}h4 {text-decoration: none; font-family: lucida grande, geneva, helvetica, arial, sans-serif; font-size: tiny; font-weight: bold;}body {text-decoration: none; font-family: lucida grande, geneva, helvetica, arial, sans-serif; font-size: 10pt;}--></style>
+</head>
+<body bgcolor="#ffffff">
+<a name="top"></a><a name="HeaderDoc_functions"></a><dl>
+<dt><tt><a href="Functions.html#//apple_ref/c/func/LeoUTF8CopyUTF8DataFromNSString" target="doc">LeoUTF8CopyUTF8DataFromNSString </a></tt></dt>
+<dd>Copies the UTF-8 representation of an NSString into NSData.
+</dd>
+<dt><tt><a href="Functions.html#//apple_ref/c/func/LeoUTF8CreateNSStringFromBytes" target="doc">LeoUTF8CreateNSStringFromBytes </a></tt></dt>
+<dd>Creates a retained NSString from an explicit UTF-8 byte buffer.
+</dd>
+</dl>
+<hr>
+<!-- headerDoc=func;  uid=//apple_ref/c/func/LeoUTF8CopyUTF8DataFromNSString;  name=LeoUTF8CopyUTF8DataFromNSString --><a name="//apple_ref/c/func/LeoUTF8CopyUTF8DataFromNSString"></a><table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
+<h3><a name="LeoUTF8CopyUTF8DataFromNSString">LeoUTF8CopyUTF8DataFromNSString </a></h3>
+</td></tr></table>
+<hr>
+<p><!-- begin abstract -->Copies the UTF-8 representation of an NSString into NSData.
+<!-- end abstract --></p>
+<p></p>
+<pre><a href="../../../headerdoc/LeoUTF8/index.html?DataTypes/DataTypes.html#//apple_ref/c/tdef/LeoUTF8Status" logicalPath="//apple_ref/c/cl/LeoUTF8Status //apple_ref/c/tdef/LeoUTF8Status" target="_top"><span class="type">LeoUTF8Status</span></a> <a href="../../../headerdoc/LeoUTF8Foundation/index.html?Functions/Functions.html#//apple_ref/c/func/LeoUTF8CopyUTF8DataFromNSString" logicalPath="//apple_ref/c/instm/LeoUTF8CopyUTF8DataFromNSString //apple_ref/c/clm/LeoUTF8CopyUTF8DataFromNSString //apple_ref/c/intfcm/LeoUTF8CopyUTF8DataFromNSString //apple_ref/c/intfm/LeoUTF8CopyUTF8DataFromNSString //apple_ref/c/func/LeoUTF8CopyUTF8DataFromNSString" target="_top"><span class="function">LeoUTF8CopyUTF8DataFromNSString</span></a>(
+    <!-- a logicalPath="//apple_ref/c/cl/NSString //apple_ref/c/tdef/NSString //apple_ref/c/tag/NSString //apple_ref/c/econst/NSString //apple_ref/c/struct/NSString //apple_ref/c/clconst/NSString //apple_ref/c/intf/NSString" --><span class="type">NSString</span><!-- /a --> *<span class="param">string</span>, 
+    <!-- a logicalPath="//apple_ref/c/cl/NSData //apple_ref/c/tdef/NSData //apple_ref/c/tag/NSData //apple_ref/c/econst/NSData //apple_ref/c/struct/NSData //apple_ref/c/clconst/NSData //apple_ref/c/intf/NSData" --><span class="type">NSData</span><!-- /a --> *<span class="type">*</span><span class="param">outData</span>);  </pre>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Parameters</font></h5>
+<dl>
+<dt><code>string </code></dt>
+<dd>Source NSString. This value must not be nil.
+<br><br>
+</dd>
+<dt><code>outData </code></dt>
+<dd>On success, receives a retained NSData object containing UTF-8 bytes.
+This pointer must not be NULL.
+<br><br>
+</dd>
+</dl>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Return Value</font></h5>
+<p><!-- begin return value -->LEO_UTF8_OK on success, otherwise a LeoUTF8Status error value.
+ 
+<!-- end return value --></p>
+<h5 class="tight">
+<font face="Lucida Grande,Helvetica,Arial">Discussion</font>
+</h5>
+<p><!-- begin discussion -->Converts an NSString to an explicit UTF-8 byte container.
+<br><br>
+On success, outData receives a retained NSData object containing the
+UTF-8 bytes for the supplied string.
+<br><br>
+The caller owns the returned object and must release it under Leopard
+manual retain/release rules.
+<br><br>
+The returned NSData is byte storage, not a string object.
+<br><br><!-- end discussion --></p>
+<p></p>
+<hr>
+<!-- headerDoc=func;  uid=//apple_ref/c/func/LeoUTF8CreateNSStringFromBytes;  name=LeoUTF8CreateNSStringFromBytes --><a name="//apple_ref/c/func/LeoUTF8CreateNSStringFromBytes"></a><table border="0" cellpadding="2" cellspacing="2" width="300"><tr><td valign="top" height="12" colspan="5">
+<h3><a name="LeoUTF8CreateNSStringFromBytes">LeoUTF8CreateNSStringFromBytes </a></h3>
+</td></tr></table>
+<hr>
+<p><!-- begin abstract -->Creates a retained NSString from an explicit UTF-8 byte buffer.
+<!-- end abstract --></p>
+<p></p>
+<pre><a href="../../../headerdoc/LeoUTF8/index.html?DataTypes/DataTypes.html#//apple_ref/c/tdef/LeoUTF8Status" logicalPath="//apple_ref/c/cl/LeoUTF8Status //apple_ref/c/tdef/LeoUTF8Status" target="_top"><span class="type">LeoUTF8Status</span></a> <a href="../../../headerdoc/LeoUTF8Foundation/index.html?Functions/Functions.html#//apple_ref/c/func/LeoUTF8CreateNSStringFromBytes" logicalPath="//apple_ref/c/instm/LeoUTF8CreateNSStringFromBytes //apple_ref/c/clm/LeoUTF8CreateNSStringFromBytes //apple_ref/c/intfcm/LeoUTF8CreateNSStringFromBytes //apple_ref/c/intfm/LeoUTF8CreateNSStringFromBytes //apple_ref/c/func/LeoUTF8CreateNSStringFromBytes" target="_top"><span class="function">LeoUTF8CreateNSStringFromBytes</span></a>(
+    <span class="keyword">const</span> <span class="keyword">unsigned</span> <!-- a logicalPath="//apple_ref/c/cl/char //apple_ref/c/tdef/char //apple_ref/c/tag/char //apple_ref/c/econst/char //apple_ref/c/struct/char //apple_ref/c/clconst/char //apple_ref/c/intf/char" --><span class="type">char</span><!-- /a --> *<span class="param">bytes</span>, 
+    <!-- a logicalPath="//apple_ref/c/cl/size_t //apple_ref/c/tdef/size_t //apple_ref/c/tag/size_t //apple_ref/c/econst/size_t //apple_ref/c/struct/size_t //apple_ref/c/clconst/size_t //apple_ref/c/intf/size_t" --><span class="type">size_t</span><!-- /a --> <span class="param">length</span>, 
+    <!-- a logicalPath="//apple_ref/c/cl/NSString //apple_ref/c/tdef/NSString //apple_ref/c/tag/NSString //apple_ref/c/econst/NSString //apple_ref/c/struct/NSString //apple_ref/c/clconst/NSString //apple_ref/c/intf/NSString" --><span class="type">NSString</span><!-- /a --> *<span class="type">*</span><span class="param">outString</span>);  </pre>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Parameters</font></h5>
+<dl>
+<dt><code>bytes </code></dt>
+<dd>Pointer to the UTF-8 byte buffer.
+<br><br>
+</dd>
+<dt><code>length </code></dt>
+<dd>Number of bytes to read from bytes.
+<br><br>
+</dd>
+<dt><code>outString </code></dt>
+<dd>On success, receives a retained NSString. This pointer must not be
+NULL.
+<br><br>
+</dd>
+</dl>
+<h5 class="tight"><font face="Lucida Grande,Helvetica,Arial">Return Value</font></h5>
+<p><!-- begin return value -->LEO_UTF8_OK on success, otherwise a LeoUTF8Status error value.
+ 
+<!-- end return value --></p>
+<h5 class="tight">
+<font face="Lucida Grande,Helvetica,Arial">Discussion</font>
+</h5>
+<p><!-- begin discussion -->Validates exactly length bytes as UTF-8 and creates a Foundation string
+from that byte buffer.
+<br><br>
+This function does not assume NUL-terminated input.
+<br><br>
+Embedded NUL bytes are accepted when the surrounding UTF-8 byte sequence
+is otherwise valid.
+<br><br>
+On success, outString receives a retained NSString. The caller owns the
+returned object and must release it under Leopard manual retain/release
+rules.
+<br><br>
+On failure, no retained NSString is returned.
+<br><br><!-- end discussion --></p>
+<p></p>
+<p>Last Updated: Thursday, May 14, 2026
+</p>
+</body>
+</html>
