@@ -53,9 +53,10 @@ bench-gcc42: $(BUILD_DIR)
 		-o $(BUILD_DIR)/leojson_jsonkit_bench_gcc42
 
 LEOJSON_SRC = sources/LeoJSON/LeoJSON.m
+ENGINE_SRC = sources/LeoJSON/Private/LeoJSONKitEngine.m
 API_SMOKE_SRC = probes/leojson_api_smoke.m
 
-COMMON_FLAGS += -Isources/LeoJSON
+COMMON_FLAGS += -Isources/LeoJSON -Isources/LeoJSON/Private
 
 .PHONY: api-smoke api-smoke-gcc40 api-smoke-gcc42
 
@@ -73,8 +74,10 @@ AR ?= /usr/bin/ar
 RANLIB ?= /usr/bin/ranlib
 
 LEOJSON_OBJ_GCC40 = $(BUILD_DIR)/LeoJSON_gcc40.o
+ENGINE_OBJ_GCC40 = $(BUILD_DIR)/LeoJSONKitEngine_gcc40.o
 JSONKIT_OBJ_GCC40 = $(BUILD_DIR)/JSONKit_gcc40.o
 LEOJSON_OBJ_GCC42 = $(BUILD_DIR)/LeoJSON_gcc42.o
+ENGINE_OBJ_GCC42 = $(BUILD_DIR)/LeoJSONKitEngine_gcc42.o
 JSONKIT_OBJ_GCC42 = $(BUILD_DIR)/JSONKit_gcc42.o
 
 .PHONY: lib lib-gcc40 lib-gcc42 api-smoke-lib api-smoke-lib-gcc40 api-smoke-lib-gcc42 clean-lib
@@ -87,19 +90,23 @@ $(LEOJSON_OBJ_GCC40): $(LEOJSON_SRC) sources/LeoJSON/LeoJSON.h | $(BUILD_DIR)
 $(JSONKIT_OBJ_GCC40): $(JSONKIT_SRC) vendor/JSONKit/JSONKit.h | $(BUILD_DIR)
 	$(CC40) $(COMMON_FLAGS) $(OPTFLAGS) -c $(JSONKIT_SRC) -o $@
 
+$(ENGINE_OBJ_GCC40): $(ENGINE_SRC) sources/LeoJSON/Private/LeoJSONKitEngine.h | $(BUILD_DIR)
+	$(CC40) $(COMMON_FLAGS) $(OPTFLAGS) -c $(ENGINE_SRC) -o $@
+
 $(LEOJSON_OBJ_GCC42): $(LEOJSON_SRC) sources/LeoJSON/LeoJSON.h | $(BUILD_DIR)
 	$(CC42) $(COMMON_FLAGS) $(OPTFLAGS) -c $(LEOJSON_SRC) -o $@
 
 $(JSONKIT_OBJ_GCC42): $(JSONKIT_SRC) vendor/JSONKit/JSONKit.h | $(BUILD_DIR)
 	$(CC42) $(COMMON_FLAGS) $(OPTFLAGS) -c $(JSONKIT_SRC) -o $@
 
-lib-gcc40: $(LEOJSON_OBJ_GCC40) $(JSONKIT_OBJ_GCC40)
-	$(AR) rcs $(BUILD_DIR)/libLeoJSON_gcc40.a $(LEOJSON_OBJ_GCC40) $(JSONKIT_OBJ_GCC40)
-	$(RANLIB) $(BUILD_DIR)/libLeoJSON_gcc40.a
+$(ENGINE_OBJ_GCC42): $(ENGINE_SRC) sources/LeoJSON/Private/LeoJSONKitEngine.h | $(BUILD_DIR)
+	$(CC42) $(COMMON_FLAGS) $(OPTFLAGS) -c $(ENGINE_SRC) -o $@
 
-lib-gcc42: $(LEOJSON_OBJ_GCC42) $(JSONKIT_OBJ_GCC42)
-	$(AR) rcs $(BUILD_DIR)/libLeoJSON_gcc42.a $(LEOJSON_OBJ_GCC42) $(JSONKIT_OBJ_GCC42)
-	$(RANLIB) $(BUILD_DIR)/libLeoJSON_gcc42.a
+lib-gcc40: $(LEOJSON_OBJ_GCC40) $(ENGINE_OBJ_GCC40) $(JSONKIT_OBJ_GCC40)
+	$(AR) rcs $(BUILD_DIR)/libLeoJSON_gcc40.a $(LEOJSON_OBJ_GCC40) $(ENGINE_OBJ_GCC40) $(JSONKIT_OBJ_GCC40)
+
+lib-gcc42: $(LEOJSON_OBJ_GCC42) $(ENGINE_OBJ_GCC42) $(JSONKIT_OBJ_GCC42)
+	$(AR) rcs $(BUILD_DIR)/libLeoJSON_gcc42.a $(LEOJSON_OBJ_GCC42) $(ENGINE_OBJ_GCC42) $(JSONKIT_OBJ_GCC42)
 
 api-smoke-lib: api-smoke-lib-gcc40 api-smoke-lib-gcc42
 
