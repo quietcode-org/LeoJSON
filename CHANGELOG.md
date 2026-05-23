@@ -1,5 +1,11 @@
 # LeoJSON Changelog
 
+## 0.6.9 - Release archive verification
+
+Add release archive target.
+Add SHA256 checksum generation.
+Add archive verification target.
+
 ## 0.6.8 - Version sync baseline
 
 - Synchronize Makefile release version with LeoJSON public version macros.

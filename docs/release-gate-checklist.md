@@ -43,9 +43,9 @@ baseline to release-candidate status.
 - [x] Static library build works
 - [x] Release layout works
 - [x] Dist consumer smoke works
-- [ ] Release archive target exists
-- [ ] SHA256 checksum generation exists
-- [ ] Generated release archive verified
+- [x] Release archive target exists
+- [x] SHA256 checksum generation exists
+- [x] Generated release archive verified
 
 ### Licensing
 
