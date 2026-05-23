@@ -8,3 +8,6 @@
 # Release products
 /dist/*
 !/dist/.gitkeep
+
+# Vendored brick build products
+/bricks/LeoUTF8/lib/
