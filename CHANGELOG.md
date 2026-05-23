@@ -1,5 +1,13 @@
 # LeoJSON Changelog
 
+## 0.7.6 - Leopard PowerPC engine-adapter package
+
+- Package the private JSONKit engine adapter work as a new public Leopard/PPC baseline.
+- Keep the public LeoJSON API unchanged.
+- Keep vendored JSONKit source unchanged.
+- Keep JSONKit private behind the LeoJSON boundary.
+- Build release archive as LeoJSON-0.7.6-Leopard-PPC.tar.gz.
+
 ## 0.7.5 - Private JSONKit engine adapter
 
 - Add private LeoJSONKitEngine adapter around JSONKit.
