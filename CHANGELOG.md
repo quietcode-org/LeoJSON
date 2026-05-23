@@ -1,5 +1,13 @@
 # LeoJSON Changelog
 
+## 0.7.5 - Private JSONKit engine adapter
+
+- Add private LeoJSONKitEngine adapter around JSONKit.
+- Keep JSONKit imports out of LeoJSON.m.
+- Keep the public LeoJSON API unchanged.
+- Keep vendored JSONKit source unchanged.
+- Confirm API and error smoke probes still pass.
+
 ## 0.7.4 - Repository hygiene check
 
 - Add repository hygiene check for executable Markdown files.
