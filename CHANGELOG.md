@@ -1,5 +1,11 @@
 # LeoJSON Changelog
 
+## 0.7.4 - Repository hygiene check
+
+- Add repository hygiene check for executable Markdown files.
+- Guard against Obsidian or editor side effects changing documentation file modes.
+- Verify required project tools remain executable.
+
 ## 0.7.3 - Release model policy
 
 - Document the difference between public package baselines and engineering tags.

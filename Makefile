@@ -232,3 +232,9 @@ clean-archive:
 
 utf8-boundary-inventory:
 	tools/leojson_utf8_boundary_inventory.sh > docs/leoutf8-jsonkit-boundary-inventory.md
+
+.PHONY: repo-hygiene
+
+repo-hygiene:
+	tools/repo_hygiene_check.sh
+
