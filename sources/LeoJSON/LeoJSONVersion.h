@@ -1,0 +1,20 @@
+#ifndef LEOJSON_VERSION_H
+#define LEOJSON_VERSION_H
+
+/*!
+ @header LeoJSONVersion
+ @abstract Version constants for LeoJSON.
+ */
+
+#define LEOJSON_VERSION_MAJOR 0
+#define LEOJSON_VERSION_MINOR 6
+#define LEOJSON_VERSION_PATCH 6
+
+#define LEOJSON_VERSION_STRING "0.6.6"
+
+#define LEOJSON_VERSION_NUMBER \
+    ((LEOJSON_VERSION_MAJOR * 10000) + \
+     (LEOJSON_VERSION_MINOR * 100) + \
+     LEOJSON_VERSION_PATCH)
+
+#endif

@@ -2,6 +2,7 @@
 #define LEOJSON_H
 
 #import <Foundation/Foundation.h>
+#import "LeoJSONVersion.h"
 
 /*!
  @header LeoJSON

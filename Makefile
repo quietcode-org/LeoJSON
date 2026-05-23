@@ -137,6 +137,7 @@ release-gcc42:
 	mkdir -p $(RELEASE_DIR)/lib
 	mkdir -p $(RELEASE_DIR)/docs
 	cp sources/LeoJSON/LeoJSON.h $(RELEASE_DIR)/include/LeoJSON.h
+cp sources/LeoJSON/LeoJSONVersion.h $(RELEASE_DIR)/include/LeoJSONVersion.h
 	cp $(BUILD_DIR)/libLeoJSON_gcc42.a $(RELEASE_DIR)/lib/libLeoJSON.a
 	cp README.md $(RELEASE_DIR)/README.md
 	cp docs/*.md $(RELEASE_DIR)/docs/

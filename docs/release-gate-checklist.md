@@ -18,7 +18,7 @@ baseline to release-candidate status.
 - [x] API contract documented in `docs/api-contract.md`
 - [x] Public/private boundary documented in `docs/public-boundary.md`
 - [x] JSONKit hidden behind LeoJSON boundary
-- [ ] Version macros available in public header or companion header
+- [x] Version macros available in public header or companion header
 
 ### Documentation
 
@@ -28,7 +28,7 @@ baseline to release-candidate status.
 - [x] Build policy documented
 - [x] Optimization profile results documented
 - [x] Release layout documented
-- [ ] Changelog added
+- [x] Changelog added
 
 ### Hardening
 
