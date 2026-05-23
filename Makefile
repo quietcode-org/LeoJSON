@@ -118,7 +118,7 @@ clean-lib:
 	rm -f $(BUILD_DIR)/leojson_api_smoke_lib_gcc40
 	rm -f $(BUILD_DIR)/leojson_api_smoke_lib_gcc42
 
-VERSION ?= 0.6.8
+VERSION ?= 0.7.0
 DIST_DIR = dist
 RELEASE_DIR = $(DIST_DIR)/LeoJSON-$(VERSION)
 RELEASE_OPTFLAGS ?= -O2 -fno-common
@@ -132,6 +132,7 @@ release: release-gcc42
 release-gcc42:
 	$(MAKE) clean-lib
 	$(MAKE) lib-gcc42 OPTFLAGS="$(RELEASE_OPTFLAGS)"
+	$(MAKE) headerdoc
 	rm -rf $(RELEASE_DIR)
 	mkdir -p $(RELEASE_DIR)/include
 	mkdir -p $(RELEASE_DIR)/lib
@@ -140,7 +141,11 @@ release-gcc42:
 	cp sources/LeoJSON/LeoJSONVersion.h $(RELEASE_DIR)/include/LeoJSONVersion.h
 	cp $(BUILD_DIR)/libLeoJSON_gcc42.a $(RELEASE_DIR)/lib/libLeoJSON.a
 	cp README.md $(RELEASE_DIR)/README.md
+	cp LICENSE $(RELEASE_DIR)/LICENSE
+	cp NOTICE $(RELEASE_DIR)/NOTICE
+	cp CHANGELOG.md $(RELEASE_DIR)/CHANGELOG.md
 	cp docs/*.md $(RELEASE_DIR)/docs/
+	if [ -d docs/api ]; then cp -R docs/api $(RELEASE_DIR)/docs/api; fi
 
 clean-dist:
 	rm -rf $(RELEASE_DIR)
@@ -204,7 +209,19 @@ verify-archive-gcc42: archive-gcc42
 	test -f $(BUILD_DIR)/archive-verify/LeoJSON-$(VERSION)/include/LeoJSONVersion.h
 	test -f $(BUILD_DIR)/archive-verify/LeoJSON-$(VERSION)/lib/libLeoJSON.a
 	test -f $(BUILD_DIR)/archive-verify/LeoJSON-$(VERSION)/README.md
+	test -f $(BUILD_DIR)/archive-verify/LeoJSON-$(VERSION)/LICENSE
+	test -f $(BUILD_DIR)/archive-verify/LeoJSON-$(VERSION)/NOTICE
+	test -f $(BUILD_DIR)/archive-verify/LeoJSON-$(VERSION)/CHANGELOG.md
+	test -f $(BUILD_DIR)/archive-verify/LeoJSON-$(VERSION)/docs/api/masterTOC.html
 	test -f $(RELEASE_SHA256)
+	test "`openssl dgst -sha256 $(RELEASE_ARCHIVE)`" = "`cat $(RELEASE_SHA256)`"
+	$(CC42) -ObjC -std=gnu99 -Wall -DNS_BLOCK_ASSERTIONS=1 \
+		-arch $(ARCH) -isysroot $(SDKROOT) -mmacosx-version-min=$(MACOSX_VERSION_MIN) \
+		-I$(BUILD_DIR)/archive-verify/LeoJSON-$(VERSION)/include \
+		$(DIST_SMOKE_SRC) $(BUILD_DIR)/archive-verify/LeoJSON-$(VERSION)/lib/libLeoJSON.a \
+		$(FOUNDATION_FLAGS) \
+		-o $(BUILD_DIR)/archive-verify/leojson_archive_smoke_gcc42
+	$(BUILD_DIR)/archive-verify/leojson_archive_smoke_gcc42
 
 clean-archive:
 	rm -f $(RELEASE_ARCHIVE)

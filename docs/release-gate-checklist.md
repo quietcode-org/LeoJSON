@@ -67,3 +67,12 @@ A release candidate must be usable by a consumer project using only:
 - `Foundation.framework`
 
 Consumer code must not require `sources/` or `vendor/`.
+
+## 0.7.0 package hardening
+
+- [x] LICENSE included in release package
+- [x] NOTICE included in release package
+- [x] CHANGELOG.md included in release package
+- [x] Generated HeaderDoc API reference included in release package
+- [x] SHA256 checksum is compared against regenerated digest
+- [x] Consumer smoke test builds from extracted release archive

@@ -1,5 +1,14 @@
 # LeoJSON Changelog
 
+## 0.7.0 - Leopard PowerPC baseline
+
+- Synchronize public version macros and release package version.
+- Include LICENSE, NOTICE, and CHANGELOG.md in release packages.
+- Include generated HeaderDoc API reference in release packages.
+- Strengthen archive verification with SHA256 comparison.
+- Build and run a consumer smoke test from the extracted release archive.
+- Refresh README for release-package consumption.
+
 ## 0.6.9 - Release archive verification
 
 Add release archive target.
