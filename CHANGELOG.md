@@ -1,5 +1,11 @@
 # LeoJSON Changelog
 
+## 0.7.3 - Release model policy
+
+- Document the difference between public package baselines and engineering tags.
+- Clarify that audit and policy tags do not automatically require new release archives.
+- Keep the Makefile version tied to the latest public package baseline unless a new package is prepared.
+
 ## 0.7.2 - Private JSONKit engine policy
 
 - Accept JSONKit as LeoJSON's private JSON engine sub-brick.
