@@ -227,3 +227,8 @@ clean-archive:
 	rm -f $(RELEASE_ARCHIVE)
 	rm -f $(RELEASE_SHA256)
 	rm -rf $(BUILD_DIR)/archive-verify
+
+.PHONY: utf8-boundary-inventory
+
+utf8-boundary-inventory:
+	tools/leojson_utf8_boundary_inventory.sh > docs/leoutf8-jsonkit-boundary-inventory.md

@@ -1,5 +1,14 @@
 # LeoJSON Changelog
 
+## 0.7.1 - LeoUTF8 / JSONKit boundary audit
+
+- Add LeoUTF8 / JSONKit boundary inventory tooling.
+- Record that JSONKit contains deeply integrated UTF-8, UTF-32, Unicode escape,
+  and surrogate-pair handling.
+- Keep JSONKit unchanged.
+- Do not add LeoUTF8 runtime integration without measured need.
+- Preserve LeoUTF8 as the general UTF-8 policy authority.
+
 ## 0.7.0 - Leopard PowerPC baseline
 
 - Synchronize public version macros and release package version.
