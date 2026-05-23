@@ -1,5 +1,12 @@
 # LeoJSON Changelog
 
+## 0.7.2 - Private JSONKit engine policy
+
+- Accept JSONKit as LeoJSON's private JSON engine sub-brick.
+- Document that vendored JSONKit source remains unchanged.
+- Document that JSONKit capabilities do not automatically become public LeoJSON API.
+- Keep LeoJSON public API as the only supported contract.
+
 ## 0.7.1 - LeoUTF8 / JSONKit boundary audit
 
 - Add LeoUTF8 / JSONKit boundary inventory tooling.
