@@ -11,3 +11,9 @@ JSONKit must not become a second project-wide UTF-8 policy layer.
 - LeoJSON owns JSON parsing and serialization.
 - JSONKit is an internal parser engine candidate.
 - Applications should use LeoJSON, not JSONKit directly.
+
+LeoJSON has no active LeoUTF8 build or runtime dependency.
+
+LeoUTF8 remains the general Leopard-Crew UTF-8 policy authority, but LeoJSON
+does not vendor, link, or call LeoUTF8. JSONKit owns JSON-internal Unicode
+handling inside LeoJSON.
