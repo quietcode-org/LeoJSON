@@ -165,3 +165,11 @@ headerdoc:
 
 clean-headerdoc:
 	rm -rf $(API_DOC_DIR)
+
+ERROR_SMOKE_SRC = probes/leojson_error_smoke.m
+
+.PHONY: error-smoke-lib-gcc42
+
+error-smoke-lib-gcc42: lib-gcc42
+	$(CC42) $(COMMON_FLAGS) $(OPTFLAGS) $(ERROR_SMOKE_SRC) $(BUILD_DIR)/libLeoJSON_gcc42.a $(FOUNDATION_FLAGS) \
+		-o $(BUILD_DIR)/leojson_error_smoke_lib_gcc42
