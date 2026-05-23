@@ -118,7 +118,7 @@ clean-lib:
 	rm -f $(BUILD_DIR)/leojson_api_smoke_lib_gcc40
 	rm -f $(BUILD_DIR)/leojson_api_smoke_lib_gcc42
 
-VERSION ?= 0.6.0
+VERSION ?= 0.6.8
 DIST_DIR = dist
 RELEASE_DIR = $(DIST_DIR)/LeoJSON-$(VERSION)
 RELEASE_OPTFLAGS ?= -O2 -fno-common

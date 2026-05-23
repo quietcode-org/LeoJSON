@@ -1,5 +1,10 @@
 # LeoJSON Changelog
 
+## 0.6.8 - Version sync baseline
+
+- Synchronize Makefile release version with LeoJSON public version macros.
+- Keep release layout naming aligned with the current engineering baseline.
+
 ## 0.6.6 - Version and changelog baseline
 
 - Add public version macros.

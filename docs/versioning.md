@@ -27,7 +27,7 @@ major * 10000 + minor * 100 + patch
 For example:
 
 ```text
-0.6.6 -> 606
+0.6.8 -> 608
 ```
 
 LeoJSON is still pre-1.0. Public API details may still change before the first  
